@@ -312,9 +312,10 @@ const getFamilyTree = async (req, res) => {
       tree,
     });
   } catch (error) {
+    console.error("Tree Error:", error);
     res.status(500).json({
       success: false,
-      message: "Server error while building family tree",
+      message: error.message || "Server error while building family tree",
     });
   }
 };
